@@ -45,7 +45,7 @@ if uploaded_file:
     if question:
         docs_scores = vectorstore.similarity_search_with_score(question, k=3)
 
-        THRESHOLD = 0.7
+        THRESHOLD = 1.0
         relevant_docs = [
             doc for doc, score in docs_scores if score < THRESHOLD
         ]
