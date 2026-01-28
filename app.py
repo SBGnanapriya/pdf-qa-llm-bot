@@ -73,7 +73,7 @@ if uploaded_file:
         results = vectorstore.similarity_search_with_score(question, k=3)
 
         relevant_docs = [
-            doc for doc, score in results if score < 0.7
+            doc for doc, score in results if score < 1.0
         ]
 
         if not relevant_docs:
