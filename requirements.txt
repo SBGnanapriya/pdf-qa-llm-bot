@@ -5,4 +5,4 @@ faiss-cpu
 pypdf
 sentence-transformers
 torch
-transformers>=4.36.0
+transformers
