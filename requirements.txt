@@ -4,5 +4,5 @@ langchain-text-splitters
 faiss-cpu
 pypdf
 sentence-transformers
-transformers
 torch
+transformers>=4.36.0
