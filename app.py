@@ -56,10 +56,15 @@ if uploaded_file:
             context = "\n".join([doc.page_content for doc in relevant_docs])
 
             # Load LLM
-            llm = pipeline(
-                "text2text-generation",
-                model="google/flan-t5-base"
-            )
+            @st.cache_resource
+            def load_llm():
+              return pipeline(
+              task="text2text-generation",
+              model="google/flan-t5-base"
+               )
+
+llm = load_llm()
+
 
             prompt = f"""
 Answer the question using ONLY the context below.
