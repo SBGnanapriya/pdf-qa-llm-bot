@@ -66,7 +66,8 @@ if uploaded_file:
 llm = load_llm()
 
 
-            prompt = f"""
+  def answer_with_llm(context, question):
+    prompt = f"""
 Answer the question using ONLY the context below.
 If the answer is not present, say "Answer not found".
 
@@ -76,6 +77,8 @@ Context:
 Question:
 {question}
 """
+    response = llm(prompt, max_length=200)
+    return response[0]["generated_text"]
 
             answer = llm(prompt, max_length=200)[0]["generated_text"]
             st.subheader("✅ Answer")
